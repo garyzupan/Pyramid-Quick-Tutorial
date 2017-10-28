@@ -1,3 +1,5 @@
+Last update 28-Oct-2017 
+
 export VENV=/home/odroid/projects/quick_tutorial/env
 echo $VENV
 
@@ -29,6 +31,7 @@ Click Plus on upper right > New Repository >
     Public
     Do not add .gitignore for ignoring languages
     Do not add a license like GNU
-# Push an existing repository from command line
+# Push an existing repository from command line first time
 git remote add origin https://github.com/garyzupan/Pyramid-Quick-Tutorial.git
+# Push every time
 git push -u origin master
