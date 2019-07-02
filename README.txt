@@ -1,4 +1,4 @@
-Last update 28-Oct-2017 
+Last update Tue 02-Jul-2019
 
 export VENV=/home/odroid/projects/quick_tutorial/env
 echo $VENV
@@ -35,3 +35,29 @@ Click Plus on upper right > New Repository >
 git remote add origin https://github.com/garyzupan/Pyramid-Quick-Tutorial.git
 # Push every time
 git push -u origin master
+
+Download Quick Tutorial, edit, status, add, commit, and push
+Chromium > github.com > login > Your repositories > 
+    Pyramid-Quick-Tutorial > Clone or Download > 
+    https://github.com/garyzupan/Pyramid-Quick-Tutorial.git
+git clone https://github.com/garyzupan/Pyramid-Quick-Tutorial.git \
+    ~/projects/quick_tutorial
+After changes are made
+git status 
+git add *
+git commit -m "billet doux"
+git push 
+
+git checkout -b test
+git status
+git branch
+make change to README.txt
+In order to discard changes
+    git checkout README.txt
+git checkout master
+git branch -D test
+
+
+
+
+
