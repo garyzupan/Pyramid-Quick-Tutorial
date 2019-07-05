@@ -1,0 +1,125 @@
+Last update Wed 03-Jul-2019
+
+export VENV=/home/odroid/projects/quick_tutorial/env
+echo $VENV
+
+Hit Ctrl-C twice rapidly to kill WSGI application
+
+How to use Github
+
+https://gethub.com
+https://git-scm.com/docs/git-log
+
+cd ~/projects/quick_tutorial
+git init
+git config --global core.editor vi
+git status
+git add README.txt
+git commit
+git diff README.txt
+git log
+git log --pretty=one-line
+git help log
+    git checkout -b develop  # create a new branch called develop
+    git checkout master
+    git merge develop
+
+github.com
+Click Plus on upper right > New Repository >
+    Repository Name Pyramid Quick Tutorial
+    Description Pyramid 1.9.1 Quick Tutorial
+    Public
+    Do not add .gitignore for ignoring languages
+    Do not add a license like GNU
+# Push an existing repository from command line first time
+git remote add origin https://github.com/garyzupan/Pyramid-Quick-Tutorial.git
+# Push every time
+git push -u origin master
+
+Download Quick Tutorial, edit, status, add, commit, and push
+Chromium > github.com > login > Your repositories > 
+    Pyramid-Quick-Tutorial > Clone or Download > 
+    https://github.com/garyzupan/Pyramid-Quick-Tutorial.git
+git clone https://github.com/garyzupan/Pyramid-Quick-Tutorial.git \
+    ~/projects/quick_tutorial
+After changes are made
+git status 
+git add *
+git commit -m "billet doux"
+git push 
+
+git checkout -b test
+git status
+git branch
+make change to README.txt
+In order to discard changes to README.txt
+    git checkout README.txt
+Or delete whole branch
+    git checkout master
+    git branch -D test
+Or track the file README.txt, README.txt is available to all branches
+    git add README.txt
+    git status
+If you don't want Git to track this file, 
+    git reset HEAD README.txt
+Remove files from Git, but leave on locally
+    git rm filename
+Investigate many deleted files 
+    git add -u
+Add changes to our branch making unavailable to other branches 
+Not merged with master or pushed upstream
+    git commit README.txt
+Commit two files, or all available files
+    git commit file1 file2
+    git commit -a
+How do you know which commits have not yet been pushed upstream, 
+but are still sitting in branches?  git status won't tell you, 
+so use this command.  
+    git log --branches --not --remotes
+This lists un-merged commits, and when it returns nothing then all 
+commits have been pushed upstream. Now let's push this commit upstream:
+    $ git push origin test
+    Counting objects: 7, done.
+    Delta compression using up to 8 threads.
+    Compressing objects: 100% (3/3), done.
+    Writing objects: 100% (3/3), 324 bytes | 0 bytes/s, done.
+    Total 3 (delta 1), reused 0 (delta 0)
+    To https://github.com/AlracWebmaven/playground.git
+     * [new branch]      test -> test
+You may be asked for your Github login credentials. Git caches them for 15 minutes, and you can change this. This example sets the cache at two hours:
+    $ git config --global credential.helper 'cache --timeout=7200'
+Now go to Github and look at your new branch. Github lists all of your branches, and you can preview your files in the different branches (figure 2).
+
+Now you can create a pull request by clicking the Compare & Pull Request button. This gives you another chance to review your changes before merging with master. You can also generate pull requests from the command line on your computer, but it's rather a cumbersome process, to the point that you can find all kinds of tools for easing the process all over the Web. So, for now, we'll use the nice clicky Github buttons.
+
+Github lets you view your files in plain text, and it also supports many markup languages so you can see a generated preview. At this point you can push more changes in the same branch. You can also make edits directly on Github, but when you do this you'll get conflicts between the online version and your local version. When you are satisfied with your changes, click the Merge pull request button. You'll have to click twice. Github automatically examines your pull request to see if it can be merged cleanly, and if there are conflicts you'll have to fix them.
+
+Another nice Github feature is when you have multiple branches, you can choose which one to merge into by clicking the Edit button at the right of the branches list (figure 3).
+
+
+Figure 3.  
+
+After you have merged, click the Delete Branch button to keep everything tidy. Then on your local computer, delete the branch by first pulling the changes to master, and then you can delete your branch without Git complaining:
+
+$ git checkout master
+$ git pull origin master
+$ git branch -d test
+You can force-delete a branch with an uppercase -D:
+
+$ git branch -D test
+Reverting Changes
+Again, the Github pointy-clicky way is easiest. It shows you a list of all changes, and you can revert any of them by clicking the appropriate button. You can even restore deleted branches.
+
+You can also do all of these tasks exclusively from your command line, which is a great topic for another day because it's complex. For an exhaustive Git tutorial try the free Git book.
+
+https://www.linux.com/learn/beginning-git-and-github-linux-users
+
+each project has 
+    setup.py for required packages
+    development.ini for constants
+For each project I probably need 
+    $VENV/bin/pip install -e .
+
+Finally for a few steps, you might add a dependency to your project in its setup.py file, and then install both the dependency and the project with either 
+$VENV/bin/pip install -e . or $VENV/bin/pip install -e ".[dev]"
+
