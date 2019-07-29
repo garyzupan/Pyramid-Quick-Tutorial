@@ -3,6 +3,7 @@ from pyramid.view import (
     view_defaults
     )
 
+
 @view_defaults(renderer='home.jinja2')
 class TutorialViews:
     def __init__(self, request):
